@@ -1,150 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Pavan | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #0077ff;
+      --bg-light: #f7f9fc;
+      --bg-dark: #121212;
+      --text-light: #ffffff;
+      --text-dark: #111111;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--primary-color);
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .toggle-btn {
+      padding: 6px 12px;
+      background-color: white;
+      color: var(--primary-color);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+a:hover {
+  text-decoration: underline;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #5ba8f1;
+section.reveal .card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+section.reveal .card:nth-child(1) { animation-delay: 0.1s; }
+section.reveal .card:nth-child(2) { animation-delay: 0.2s; }
+section.reveal .card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-header {
-    background-color: #84afd5;
-    color: #fff;
-    padding: 20px 0;
-}    
+    .card h3 {
+      margin-top: 0;
+    }
 
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #eaeaea;
+    }
 
-nav ul {
-    list-style-type: none;
-    text-align:end;
-}
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
 
-nav ul li {
-    display: inline;
-    margin: 0 20px;
-}
+    .dark-mode header {
+      background-color: #1f1f1f;
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: #f7f4f4;
-    font-weight: bold;
-    font-size: 18px;
-}
-.projects{
-    border: 2px solid black;
-    background-color:rgb(63, 174, 199);
-    border-radius: 30px;
-    padding: 20px;
-    margin: 10px;
+    .dark-mode .card {
+      background: #1e1e1e;
+      color: #f0f0f0;
+    }
 
-}
+    .dark-mode footer {
+      background-color: #1a1a1a;
+      color: #ccc;
+    }
 
-.section {
-    background-color: rgb(167, 206, 251);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-}
-
-.section h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-
-}
-
-    </style>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+      .toggle-btn {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h2 style="margin-left: 20px;
-            margin-top: 50px;">I'M THARAGALLA J S KRISHNA PAVAN</h2>
-            <span style="margin-left: 20px;
-            margin-top: 50px;">Web Designer & Developer</span>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#accomplishments">Accomplishments</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contacts">Contacts</a></li>
 
-            </ul>
-        </nav>
+  <header>
+    <h1>THARAGALLA J.S. KRISHNA PAVAN</h1>
+    <div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <button class="toggle-btn" onclick="toggleMode()">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
 
-    </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am a dedicated Full Stack Developer with a passion for learning and building modern web applications. I enjoy solving complex problems and exploring technologies like Data Structures, Algorithms, and Blockchain. My goal is to continuously improve and contribute to real-world projects.</p>
+    </div>
+  </section>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p style="padding: 10px;padding-left: 30px;
-        padding-right: 20px;">I am a dedicated and versatile Full Stack Developer with a profound passion for exploring cutting-edge technologies. I possess a relentless eagerness to learn and thrive on embracing new challenges. My current focus lies in the realms of Data Structures, Algorithms, and Blockchain technology. My greatest fascination lies in the art of problem-solving, and I am unwavering in my commitment to enhancing my technical skills. These efforts are driven by my unwavering determination to accomplish my goals and make a meaningful impact in the world of technology.</p>
-    </section>
-    <section class="section">
-        <h2>carrer objectives</h2>
-        <p style="padding: 10px;padding-left: 30px;
-        padding-right: 20px;">My aspiration is to harness my computer science engineering education and fervor for technology to make significant contributions to groundbreaking software development endeavors. I am committed to a continual pursuit of excellence, constantly honing my programming prowess. I am enthusiastic about collaborating with diverse teams, collectively tackling intricate technological challenges in the dynamic landscape of the tech industry.</p>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3> Weather App</h3>
+      <p>Developed a responsive weather app using HTML, CSS, and JavaScript with OpenWeatherMap API integration. It provides real-time weather data based on user input, featuring a clean UI, animations, and error handling—showcasing skills in front-end development, API integration.</p>
+    </div>
+    <div class="card">
+      <h3>Sentiment Analysis for Restaurant Feedback</h3>
+      <p>Developed a sentiment analysis system to classify restaurant reviews as positive or negative, using Naive Bayes and Logistic Regression. Logistic Regression achieved higher accuracy, effectively handling large and correlated feature sets, helping businesses gain insights into customer feedback for better decision-making.</p>
+    </div>
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>This modern portfolio site showcases my skills and experience using HTML, CSS, and JS.</p>
+    </div>
+  </section>
 
-    <section id="education" class="section">
-        <h2>Education</h2>
-        <ul style= "font-size:larger;">
-            <li><pre>Secondary School:
-                Vishnu school
-                10 standard passed from CBSE board
-                Percentage-71%</pre>
-            </li>
-                <li><pre>Intermediate:
-                    Tirumala Junior college
-                    12th passed from BIEAP Board 
-                    Percentage-87.4%</pre>
-                </li>
-                    <li><pre>B.tech:
-                        Vishnu institute of technology
-                        2021-2025</pre>
-                    </li>
-            
-        </ul>
-    </section>
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>B.Tech – Vishnu Institute of Technology (2021–2025)</h3>
+      <p>Computer Science Engineering | CGPA: 8.46</p>
+    </div>
+    <div class="card">
+      <h3>Intermediate – Tirumala Junior College</h3>
+      <p>87.4% | BIEAP Board</p>
+    </div>
+    <div class="card">
+      <h3>10th – Vishnu School</h3>
+      <p>71% | CBSE Board</p>
+    </div>
+  </section>
 
-    <section id="accomplishments" class="section">
-        <h2>Accomplishments</h2>
-        <div >
-        <div class="projects"><h3>TELEGRAM BOT</h3>
-            It is a Node.js script that creates a Telegram bot which interacts with
-            users,retrieves information about countries using the an API, and stores
-            user search history in a Firestore database.
-           </div>
-        <div class="projects"><h3>LOGIN & SIGN UP PAGES</h3>
-            Express.js web application that uses Firebase Firestore for user signup
-            and login functionality.It is designed to handle user interactions
-            through HTTP end points.</div>
-        <div class="projects"><h3>PORTFOLIO</h3>
-            Created a portfolio website Using HTML and CSS to showcase
-            skills,projects,and accomplishments with parallax effect.
-            </div>
-        </div>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p><i class="fas fa-phone"></i> 8501879889</p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:21pa1a05h2@vishnu.edu.in">21pa1a05h2@vishnu.edu.in</a></p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/Tpavan2004" target="_blank">GitHub</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/tharagalla-j-s-krishna-pavan/" target="_blank">LinkedIn</a></p>
+      <p><i class="fas fa-map-marker-alt"></i> Bhimavaram, West Godavari – 534202</p>
+    </div>
+  </section>
 
-    <section id="contacts" class="section">
-        <h2>Contact Information</h2>
-        <p style="padding: 10px;padding-left: 30px;
-        padding-right: 20px;"><i class="glyphicon glyphicon-user"></i>  mobile: 8501879889<br><i class="glyphicon glyphicon-envelope"></i>  email :<a href="email :21pa1a05h2@vishnu.edu.in">21pa1a05h2@vishnu.edu.in</a><br>
-            Github:THARAGALLA J S KRISHNA PAVAN<br>
-            Linked in:THARAGALLA J S KRISHNA PAVAN<br>
-            Address:West Godavari,Bhimavaram,534202</p>
-    </section>
+  <footer>
+    © 2025 Krishna Pavan. All Rights Reserved.
+  </footer>
 
+  <script>
+    // Dark mode persistence
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    function toggleMode() {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
     
+    // Reveal sections on scroll
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
